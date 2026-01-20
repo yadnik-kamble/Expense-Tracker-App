@@ -1,5 +1,5 @@
 {
-  "outputDirectory": "dist",
+  "outputDirectory": "build_output",
   "framework": "vite",
   "buildCommand": "exit 0",
   "installCommand": "exit 0"
