@@ -5,13 +5,17 @@ const ExpenseHistory = () => {
   const [transactions, setTransactions] = useState([]);
   const token = localStorage.getItem('token');
 
+  // Define the Base URL from environment variables
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   useEffect(() => {
     fetchTransactions();
   }, []);
 
   const fetchTransactions = async () => {
     try {
-      const res = await axios.get('/api/dashboard/transactions', {
+      // UPDATED: Added API_URL
+      const res = await axios.get(`${API_URL}/api/dashboard/transactions`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setTransactions(res.data);
@@ -24,7 +28,8 @@ const ExpenseHistory = () => {
     if (!window.confirm("Are you sure you want to delete this?")) return;
     
     try {
-      await axios.delete(`/api/dashboard/transactions/${id}`, {
+      // UPDATED: Added API_URL
+      await axios.delete(`${API_URL}/api/dashboard/transactions/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       // Remove from UI immediately without refreshing

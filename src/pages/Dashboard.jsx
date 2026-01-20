@@ -9,9 +9,13 @@ const Dashboard = () => {
   const [data, setData] = useState([]);
   const token = localStorage.getItem('token');
 
+  // Define the Base URL from environment variables
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   const fetchData = async () => {
     try {
-      const res = await axios.get('/api/dashboard/records', {
+      // UPDATED: Added API_URL before the path
+      const res = await axios.get(`${API_URL}/api/dashboard/records`, {
         headers: { Authorization: `Bearer ${token}` }
       });
       setData(res.data);

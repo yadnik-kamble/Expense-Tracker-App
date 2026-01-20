@@ -11,6 +11,9 @@ const AddDataForm = ({ onDataAdded }) => {
     type: 'expense' // Default to expense
   });
 
+  // 1. Define the API Base URL from environment variables
+  const API_URL = import.meta.env.VITE_API_BASE_URL;
+
   const categories = ['Food & Dining', 'Transport', 'Utilities', 'Entertainment', 'Health', 'General', 'Salary', 'Freelance'];
 
   const handleSubmit = async (e) => {
@@ -18,9 +21,11 @@ const AddDataForm = ({ onDataAdded }) => {
     const token = localStorage.getItem('token');
     
     try {
-      await axios.post('/api/dashboard/transactions', formData, {
+      // 2. UPDATED: Use API_URL here
+      await axios.post(`${API_URL}/api/dashboard/transactions`, formData, {
         headers: { Authorization: `Bearer ${token}` }
       });
+      
       setFormData({ ...formData, description: '', amount: '' }); // Reset fields
       if (onDataAdded) onDataAdded();
       alert('Transaction Added!');
