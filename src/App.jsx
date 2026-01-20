@@ -6,6 +6,7 @@ import Analytics from './pages/Analytics';
 import Settings from './pages/Settings';
 import ExpenseHistory from './pages/ExpenseHistory';
 import Register from './pages/Register'; // Import the new page
+import axios from 'axios';
 import './App.css';
 
 // --- AUTH COMPONENT (Login/Register Switcher) ---
