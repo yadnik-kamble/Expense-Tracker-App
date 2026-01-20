@@ -1,0 +1,27 @@
+.chart-container {
+  background: var(--card-bg);
+  padding: 20px;
+  border-radius: 12px;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.2);
+}
+
+.custom-tooltip {
+  background-color: var(--bg-sidebar); /* Dark grey */
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  padding: 10px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.3);
+}
+
+.custom-tooltip .label {
+  margin: 0;
+  color: var(--text-muted);
+  font-size: 0.85rem;
+}
+
+.custom-tooltip .intro {
+  margin: 4px 0 0 0;
+  color: var(--accent);
+  font-weight: bold;
+  font-size: 1rem;
+}
