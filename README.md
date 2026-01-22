@@ -3,10 +3,19 @@
 ![MERN Stack](https://img.shields.io/badge/MERN-Full%20Stack-success)
 ![Status](https://img.shields.io/badge/Status-Active-brightgreen)
 
- A robust full-stack application leveraging MongoDB, Express, React, and Node.js to deliver a high-performance financial dashboard. This project integrates complex data visualization via Recharts with a secure RESTful API backend. Key technical highlights include JWT-based authentication, responsive CSS Grid layouts, and real-time state management for immediate UI updates upon data entry
+ ### A robust full-stack application leveraging MongoDB, Express, React, and Node.js to deliver a high-performance financial dashboard. This project integrates complex data visualization via Recharts with a secure RESTful API backend. Key technical highlights include JWT-based authentication, responsive CSS Grid layouts, and real-time state management for immediate UI updates upon data entry
 
 ---
+## 🔗 Live Demo
+https://expense-tracker-frontend-eta-eight.vercel.app
 
+## 🔐 Demo Credentials
+Use the following demo account to explore the application:
+
+- **Email:** yadnik123@gmail.com  
+- **Password:** 12345  
+
+> These credentials are for demonstration purposes only.
 ## 📸 Screenshots
 
 | **Executive Dashboard** | **Analytics Overview** |
