@@ -15,7 +15,7 @@ import Register from "./pages/Register"; // Import the new page
 import axios from "axios";
 import "./App.css";
 
-// --- AUTH COMPONENT (Login/Register Switcher) ---
+// --- AUTH COMPONENT (Login/Register Switcher) ----
 const AuthScreen = ({ setToken }) => {
   const [isRegistering, setIsRegistering] = useState(false);
   const [email, setEmail] = useState("");
