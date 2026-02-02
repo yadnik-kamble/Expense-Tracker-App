@@ -4,36 +4,33 @@ import axios from 'axios';
 const ExpenseHistory = () => {
   const [transactions, setTransactions] = useState([]);
   const token = localStorage.getItem('token');
-
-  // Define the Base URL from environment variables
   const API_URL = import.meta.env.VITE_API_BASE_URL;
 
   useEffect(() => {
-    fetchTransactions();
-  }, []);
+    
+    const fetchTransactions = async () => {
+      try {
+        const res = await axios.get(`${API_URL}/api/dashboard/transactions`, {
+          headers: { Authorization: `Bearer ${token}` }
+        });
+        setTransactions(res.data);
+      } catch (err) {
+        console.error(err);
+      }
+    };
 
-  const fetchTransactions = async () => {
-    try {
-      // UPDATED: Added API_URL
-      const res = await axios.get(`${API_URL}/api/dashboard/transactions`, {
-        headers: { Authorization: `Bearer ${token}` }
-      });
-      setTransactions(res.data);
-    } catch (err) {
-      console.error(err);
-    }
-  };
+    fetchTransactions();
+  }, []); 
 
   const handleDelete = async (id) => {
     if (!window.confirm("Are you sure you want to delete this?")) return;
     
     try {
-      // UPDATED: Added API_URL
       await axios.delete(`${API_URL}/api/dashboard/transactions/${id}`, {
         headers: { Authorization: `Bearer ${token}` }
       });
-      // Remove from UI immediately without refreshing
-      setTransactions(transactions.filter(tx => tx._id !== id));
+      // Remove from UI immediately
+      setTransactions((prev) => prev.filter(tx => tx._id !== id));
     } catch (err) {
       console.error(err);
       alert("Failed to delete transaction");

@@ -11,7 +11,7 @@ import Dashboard from "./pages/Dashboard";
 import Analytics from "./pages/Analytics";
 import Settings from "./pages/Settings";
 import ExpenseHistory from "./pages/ExpenseHistory";
-import Register from "./pages/Register"; // Import the new page
+import Register from "./pages/Register";
 import axios from "axios";
 import "./App.css";
 
@@ -38,6 +38,37 @@ const AuthScreen = ({ setToken }) => {
 
   return (
     <div className="login-container">
+      {/* --- LEFT SIDE: DEMO BOX --- */}
+      <div className="demo-box">
+        <div className="demo-title">👋 Welcome Back!</div>
+        <p className="demo-text">
+          Don't have an account? Use these demo details:
+        </p>
+
+        <div
+          className="demo-credentials"
+          onClick={() => {
+            navigator.clipboard.writeText("yadnik123@gmail.com");
+            alert("Email copied!");
+          }}
+          title="Click to copy email"
+        >
+          📧 <strong>Email:</strong> yadnik123@gmail.com
+        </div>
+
+        <div
+          className="demo-credentials"
+          onClick={() => {
+            navigator.clipboard.writeText("12345");
+            alert("Password copied!");
+          }}
+          title="Click to copy password"
+        >
+          🔑 <strong>Pass:</strong> 12345
+        </div>
+      </div>
+
+      {/* --- RIGHT SIDE: LOGIN FORM --- */}
       <form className="login-box" onSubmit={handleLogin}>
         <h2>Expense Tracker Login</h2>
         <input
@@ -70,7 +101,6 @@ const AuthScreen = ({ setToken }) => {
 function App() {
   const [token, setToken] = useState(localStorage.getItem("token"));
 
-  // If no token, show Auth Screen (Login or Register)
   if (!token) {
     return <AuthScreen setToken={setToken} />;
   }
